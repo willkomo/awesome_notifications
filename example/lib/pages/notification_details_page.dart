@@ -182,7 +182,7 @@ class _NotificationDetailsPageState extends State<NotificationDetailsPage> {
                                       fontWeight: FontWeight.bold)),
                               TextSpan(
                                 text: '\n$displayedDate',
-                                style: themeData.textTheme.subtitle2
+                                style: themeData.textTheme.titleSmall
                                     ?.copyWith(color: Colors.black26),
                               )
                             ])),
@@ -200,7 +200,7 @@ class _NotificationDetailsPageState extends State<NotificationDetailsPage> {
                                   child: Text(
                                       widget.receivedNotification.bodyWithoutHtml ??
                                           '',
-                                      style: themeData.textTheme.bodyText2)),
+                                      style: themeData.textTheme.bodyMedium)),
                     ],
                   ),
                 ),
@@ -221,13 +221,13 @@ class _NotificationDetailsPageState extends State<NotificationDetailsPage> {
                             children: <Widget>[
                               Text(
                                 'ReceivedNotification details:',
-                                style: themeData.textTheme.subtitle1
+                                style: themeData.textTheme.titleMedium
                                     ?.copyWith(color: themeData.hintColor),
                               ),
                               SizedBox(height: 20),
                               Text(
                                 widget.results,
-                                style: themeData.textTheme.bodyText2
+                                style: themeData.textTheme.bodyMedium
                                     ?.copyWith(color: themeData.hintColor),
                               ),
                             ],

@@ -9,6 +9,20 @@ assignees: ''
 
 # Rules
 
+<!-- ====== ⚠️ =========== WARNING =========== ⚠️ ======
+
+<!-- ====== ⚠️ DO NOT ERASE THIS FORM ISSUE!!!! ⚠️ ======
+<!-- ====== ⚠️ DO NOT ERASE THIS FORM ISSUE!!!! ⚠️ ======
+<!-- ====== ⚠️ DO NOT ERASE THIS FORM ISSUE!!!! ⚠️ ======
+<!-- ====== ⚠️ DO NOT ERASE THIS FORM ISSUE!!!! ⚠️ ======
+
+<!-- ====== ⚠️  PLEASE, READ THE MESSAGE BELLOW ⚠️ ======
+
+If you remove, do not respond the form bellow or break the posting rules, your issue will be ***closed*** and marked as ***invalid***.
+If your issue was marked with ***invalid***, its content will not be read.
+Please respect the rules below and we will respond you as soon as possible.
+-->
+
 To report a bug and help us to provide the solution as fast as possible, please follow the instructions below:
 
 ## **1 - Describe the bug**

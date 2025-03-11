@@ -91,7 +91,7 @@ class _PhoneCallPageState extends State<PhoneCallPage> {
                       maxLines: 4,
                       style: themeData
                           .textTheme
-                          .headline3
+                          .displaySmall
                           ?.copyWith(color: Colors.white),
                     ),
                     Text(
@@ -99,7 +99,7 @@ class _PhoneCallPageState extends State<PhoneCallPage> {
                         'Incoming call' : 'Call in progress: ${printDuration(_secondsElapsed)}',
                       style: themeData
                         .textTheme
-                        .headline6
+                        .titleLarge
                         ?.copyWith(color: Colors.white54, fontSize: _timer == null ? 20 : 12),
                     ),
                     SizedBox(height: 50),
@@ -117,7 +117,7 @@ class _PhoneCallPageState extends State<PhoneCallPage> {
                                 Icon(FontAwesomeIcons.solidClock, color: Colors.white54),
                                 Text('Reminder me', style:  themeData
                                     .textTheme
-                                    .headline6
+                                    .titleLarge
                                     ?.copyWith(color: Colors.white54, fontSize: 12, height: 2))
                               ],
                             )
@@ -133,7 +133,7 @@ class _PhoneCallPageState extends State<PhoneCallPage> {
                                 Icon(FontAwesomeIcons.solidEnvelope, color: Colors.white54),
                                 Text('Message', style:  themeData
                                     .textTheme
-                                    .headline6
+                                    .titleLarge
                                     ?.copyWith(color: Colors.white54, fontSize: 12, height: 2))
                               ],
                             ),
@@ -167,7 +167,7 @@ class _PhoneCallPageState extends State<PhoneCallPage> {
                             stickToEnd: true,
                             textStyle: Theme.of(context)
                                 .textTheme
-                                .headline6
+                                .titleLarge
                                 ?.copyWith(color: Colors.white, fontSize: mediaQueryData.size.width * 0.05),
                             sliderButtonContent: RoundedButton(
                               press: (){},
@@ -222,12 +222,15 @@ class RoundedButton extends StatelessWidget {
     return SizedBox(
       height: size,
       width: size,
-      child: FlatButton(
-        padding: EdgeInsets.all(15 / 64 * size),
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(100)),
+      // ignore: deprecated_member_use
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          backgroundColor: color,
+          padding: EdgeInsets.all(15 / 64 * size),
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(100)),
+          ),
         ),
-        color: color,
         onPressed: press,
         child: icon,
       ),

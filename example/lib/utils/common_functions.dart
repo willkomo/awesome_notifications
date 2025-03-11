@@ -1,13 +1,12 @@
-import 'dart:ui';
-import 'dart:io';
 
+import 'dart:io';
 import 'dart:math' as math;
 import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 
 import 'package:flutter/material.dart';
-import 'package:device_info/device_info.dart';
+import 'package:device_info_plus/device_info_plus.dart';
 import 'package:path_provider/path_provider.dart';
 
 Future<String> saveAssetOnDisk(ImageProvider image, String fileName) async {
@@ -16,21 +15,21 @@ Future<String> saveAssetOnDisk(ImageProvider image, String fileName) async {
   File newFile = File(filePath);
 
   if (!await newFile.exists()) {
-    BitmapHelper bitmapHelper = await BitmapHelper.fromProvider(image);
+    BitmapHelper bitmapHelper = await BitmapHelper.fromImageProvider(image);
     await newFile.writeAsBytes(bitmapHelper.content);
   }
 
   return filePath;
 }
 
-void lockScreenPortrait(){
+void lockScreenPortrait() {
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
 }
 
-void unlockScreenPortrait(){
+void unlockScreenPortrait() {
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.landscapeRight,
     DeviceOrientation.landscapeLeft,
@@ -69,8 +68,7 @@ Future<String> downloadAndSaveImageOnDisk(String url, String fileName) async {
   var filePath = '${directory.path}/$fileName';
   var file = File(filePath);
 
-
-  if(!await file.exists()){
+  if (!await file.exists()) {
     var response = await http.get(Uri.parse(url));
     await file.writeAsBytes(response.bodyBytes);
   }

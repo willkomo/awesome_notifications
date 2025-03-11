@@ -157,8 +157,9 @@ class _MediaDetailsPageState extends State<MediaDetailsPage> {
     ThemeData themeData = Theme.of(context);
 
     isLighten =
-        isLighten ?? themeData.accentColorBrightness == Brightness.light;
-    mainColor = mainColor ?? themeData.backgroundColor;
+        // ignore: deprecated_member_use
+        isLighten ?? themeData.brightness == Brightness.light;
+    mainColor = mainColor ?? themeData.colorScheme.background;
     contrastColor = contrastColor ?? (isLighten! ? Colors.black : Colors.white);
 
     double maxSize = max(mediaQueryData.size.width, mediaQueryData.size.height);
@@ -169,18 +170,19 @@ class _MediaDetailsPageState extends State<MediaDetailsPage> {
     return Theme(
         data: Theme.of(context).copyWith(
             primaryColor: mainColor,
-            accentColor: contrastColor,
+            // ignore: deprecated_member_use
+            secondaryHeaderColor: contrastColor,
             scaffoldBackgroundColor: mainColor,
             disabledColor: contrastColor?.withOpacity(0.25),
             textTheme: Theme.of(context)
                 .textTheme
                 .copyWith(
-                  headline2:
-                      TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-                  headline3:
-                      TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
-                  headline6:
-                      TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
+                  displayMedium:
+                      const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                  displaySmall:
+                      const TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
+                  titleLarge:
+                      const TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
                 )
                 .apply(
                   bodyColor: contrastColor,
@@ -295,7 +297,7 @@ class _MediaDetailsPageState extends State<MediaDetailsPage> {
   Widget mediaCloseCaption(ThemeData themeData, double imageHeight,
       double imageWidth, MediaQueryData mediaQueryData, double maxSize) {
     TextStyle? textStyle =
-        themeData.textTheme.headline6?.copyWith(color: contrastColor);
+        themeData.textTheme.titleLarge?.copyWith(color: contrastColor);
     String subtitle = MediaPlayerCentral.getCloseCaption(durationPlayed!);
 
     return Container(
@@ -457,13 +459,13 @@ class _MediaDetailsPageState extends State<MediaDetailsPage> {
         children: <Widget>[
           Text(
             band ?? 'No track',
-            style: Theme.of(context).textTheme.headline2,
+            style: Theme.of(context).textTheme.displayMedium,
             textAlign: TextAlign.center,
           ),
           SizedBox(height: maxSize * 0.01),
           Text(
             music ?? '',
-            style: Theme.of(context).textTheme.headline3,
+            style: Theme.of(context).textTheme.displaySmall,
             textAlign: TextAlign.center,
           )
         ],
